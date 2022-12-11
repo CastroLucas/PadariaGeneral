@@ -46,9 +46,9 @@ function calculate(sum) {
 
   for (let i = 0; i < sinais.length; i++) {
     if (sinais[i] == '$') {
-        numeros.splice(i,2, Number(numeros[i] / Number(numeros[i+1])));
-        sinais.splice(i,1);
-        i--;
+      numeros.splice(i, 2, Number(numeros[i] / Number(numeros[i + 1])));
+      sinais.splice(i, 1);
+      i--;
     }
   }
 
@@ -70,9 +70,28 @@ function calculate(sum) {
 
   return soma;
 }
-console.log(calculate('2+5*3.2$2-1'), '9');
-console.log(calculate('5$5$5$5'), '0.04');
-console.log(calculate('1000$2.5$5+5-5+6$6'), '81');
-console.log(calculate('5*6$2&5-10'), '400: Bad request');
+// console.log(calculate('2+5*3.2$2-1'), '9');
+// console.log(calculate('5$5$5$5'), '0.04');
+// console.log(calculate('1000$2.5$5+5-5+6$6'), '81');
+// console.log(calculate('5*6$2&5-10'), '400: Bad request');
 
-//Link do desafio https://www.codewars.com/kata/581bc0629ad9ff9873000316/train/javascript
+
+function dirReduc(arr, key) {
+  //			["NORTH", "SOUTH", "WEST", "EAST"],
+  key = false;
+  for (let i = 0; i < arr.length; i++) {
+    if ((arr[i] === 'NORTH' && arr[i + 1] === 'SOUTH') || (arr[i] === 'SOUTH' && arr[i + 1] === 'NORTH')) {
+      arr.splice(i, 2);
+      i--;
+      key=true;
+    } else if ((arr[i] === 'WEST' && arr[i + 1] === 'EAST') || (arr[i] === 'EAST' && arr[i + 1] === 'WEST')) {
+      arr.splice(i, 2);
+      i--;
+      key=true;
+    }
+  }
+  if (key === false) return arr;
+  return dirReduc(arr, key);
+}
+
+// console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
