@@ -1,5 +1,10 @@
 # PadariaGeneral
 
+Estou fazendo essa baguncinha aqui para estudar angular, js e ts
+Isso tudo porque sou um dev backend que foi contratado para uma cadeira de front
+Mas eu não amarelo não, aqui tem coragem! Serei tão bom no front end quanto sou hoje no back end
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
 ## Development server
